@@ -12,11 +12,11 @@ import 'dart:async';
       'dismissOnTimeout',
       'message'
     ],
-    events: const ['closeEmitter: close'],
+    events: const ['closeStream: close'],
     viewBindings: const [AlertModel])
 @View(templateUrl: 'alert.html', directives: const [NgIf, NgClass])
 class Alert implements OnInit {
-  EventEmitter closeEmitter = new EventEmitter();
+  EventEmitter closeStream = new EventEmitter();
   AlertModel model;
 
   set type(String value) => model.type = value;
@@ -34,7 +34,7 @@ class Alert implements OnInit {
   }
 
   close() {
-    closeEmitter.add(this.model);
+    closeStream.add(this.model);
     model.closed = true;
   }
 }
