@@ -1,0 +1,14 @@
+<html><head></head><body><alert type="danger">
+  <strong>Oh snap!</strong> Change a few things up and try submitting again.
+</alert>
+<alert type="success">
+  <strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+<alert type="info" [dismiss-on-timeout]="3000">
+  I will be gone in 3 seconds.
+</alert>
+
+<alert *ng-for="#alert of alerts" [model]="alert"></alert>
+
+<button type="button" class="btn btn-primary" (click)="addAlert()">Add Alert</button>
+</body></html>
