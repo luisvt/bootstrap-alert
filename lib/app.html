@@ -8,6 +8,6 @@
   I will be gone in 3 seconds.
 </alert>
 
-<alert *ng-for="#alert of alerts" [model]="alert"></alert>
+<alert *ng-for="#alert of alerts" [model]="alert" (close)="closeAlert($event)"></alert>
 
 <button type="button" class='btn btn-primary' (click)="addAlert()">Add Alert</button>

@@ -5,21 +5,24 @@ import 'dart:async';
 
 @Component(
     selector: 'alert',
-    properties: const ['model', 'type', 'dismissible', 'dismissOnTimeout', 'message'],
+    properties: const [
+      'model',
+      'type',
+      'dismissible',
+      'dismissOnTimeout',
+      'message'
+    ],
     events: const ['closeEmitter: close'],
-    viewBindings: const [AlertModel]
-)
-@View(
-    templateUrl: 'alert.html',
-    directives: const [NgIf, NgClass])
+    viewBindings: const [AlertModel])
+@View(templateUrl: 'alert.html', directives: const [NgIf, NgClass])
 class Alert implements OnInit {
   EventEmitter closeEmitter = new EventEmitter();
   AlertModel model;
 
-  set type(String value) {model.type = value;}
-  set dismissible(bool value) {model.dismissible = value;}
-  set dismissOnTimeout(int value) {model.dismissOnTimeout = value;}
-  set message(String value) {model.message = value;}
+  set type(String value) => model.type = value;
+  set dismissible(bool value) => model.dismissible = value;
+  set dismissOnTimeout(int value) => model.dismissOnTimeout = value;
+  set message(String value) => model.message = value;
 
   Alert(this.model);
 
@@ -31,7 +34,7 @@ class Alert implements OnInit {
   }
 
   close() {
-    closeEmitter.add(this);
+    closeEmitter.add(this.model);
     model.closed = true;
   }
 }

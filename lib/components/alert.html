@@ -1,8 +1,9 @@
 <div *ng-if="!model.closed" [ng-class]="model.classes"
      class="alert" role="alert">
   <button *ng-if="model.dismissible" (click)="close()"
-      type="button" class="close" aria-label="Close">
+          type="button" class="close" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
-  <ng-content></ng-content>{{ model.message }}
+  <ng-content></ng-content>
+  {{ model.message }}
 </div>
