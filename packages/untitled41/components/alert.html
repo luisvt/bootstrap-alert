@@ -2,5 +2,6 @@
   <button *ng-if="model.dismissible" (click)="close()" type="button" class="close" aria-label="Close">
     <span aria-hidden="true">×</span>
   </button>
-  <ng-content></ng-content>{{ model.message }}
+  <ng-content></ng-content>
+  {{ model.message }}
 </div></body></html>

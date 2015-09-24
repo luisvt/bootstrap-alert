@@ -27,7 +27,7 @@
       "callAfterViewInit": false,
       "callAfterViewChecked": false,
       "events": [
-        "closeEmitter: close"
+        "closeStream: close"
       ],
       "changeDetection": null,
       "version": 1
