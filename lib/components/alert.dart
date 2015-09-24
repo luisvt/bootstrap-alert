@@ -14,13 +14,12 @@ import 'dart:async';
     directives: const [NgIf, NgClass])
 class Alert implements OnInit {
   EventEmitter closeEmitter = new EventEmitter();
+  AlertModel model;
 
   set type(String value) {model.type = value;}
   set dismissible(bool value) {model.dismissible = value;}
   set dismissOnTimeout(int value) {model.dismissOnTimeout = value;}
   set message(String value) {model.message = value;}
-
-  AlertModel model;
 
   Alert(this.model);
 
@@ -46,7 +45,4 @@ class AlertModel {
 
   String get classes => 'alert-${type}'
       '${dismissible ? ' alert-dismissible' : ''}';
-
-  AlertModel();
-
 }
