@@ -16,5 +16,6 @@ class App {
   closeAlert(AlertModel alert) {
     print("An alert with type ${alert.type}. "
         "And message: '${alert.message}' is closed.");
+    alerts.remove(alert);
   }
 }

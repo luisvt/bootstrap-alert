@@ -1,4 +1,4 @@
-<div *ng-if="!model.closed" [ng-class]="model.classes"
+<div [ng-class]="model.classes"
      class="alert" role="alert">
   <button *ng-if="model.dismissible" (click)="close()"
           type="button" class="close" aria-label="Close">

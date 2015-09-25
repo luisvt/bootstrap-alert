@@ -1,6 +1,7 @@
 library untitled41.component.my_cmp;
 
 import 'package:angular2/angular2.dart';
+import 'package:angular2/src/core/compiler/element_ref.dart' show ElementRef;
 import 'dart:async';
 
 @Component(
@@ -24,7 +25,9 @@ class Alert implements OnInit {
   set dismissOnTimeout(int value) => model.dismissOnTimeout = value;
   set message(String value) => model.message = value;
 
-  Alert(this.model);
+  ElementRef elementRef;
+
+  Alert(this.model, this.elementRef);
 
   onInit() {
     if (model.dismissOnTimeout != null) {
@@ -35,14 +38,14 @@ class Alert implements OnInit {
 
   close() {
     closeStream.add(this.model);
-    model.closed = true;
+    elementRef.nativeElement.remove();
   }
 }
 
 @Injectable()
 class AlertModel {
   String type = 'warning';
-  bool dismissible = false, closed = false;
+  bool dismissible = false;
   String message = "";
   int dismissOnTimeout;
 
